@@ -5,23 +5,16 @@ compararListas([],[]):-!.
 compararListas(L1, L2):-
     =([Head1|Tail1], L1),
     =([Head2|Tail2], L2),
+    atomic(Head1),
+    atomic(Head2),
     ==(Head1, Head2),
-    compararListasAnidadas(Head1, Head2),
     compararListas(Tail1, Tail2),!.
 
 compararListas(L1, L2):-
     =([Head1|Tail1], L1),
     =([Head2|Tail2], L2),
-    ==(Head1, Head2),
+    compararListas(Head1, Head2),
     compararListas(Tail1, Tail2),!.
-
-compararListasAnidadas([], []):-!.
-
-compararListasAnidadas(L1, L2):-
-    =([Head1|Tail1], L1),
-    =([Head2|Tail2], L2),
-    ==(Head1, Head2),
-    compararListas(Tail1,Tail2),!.
 
 %Ejercicio 2
 
@@ -30,14 +23,14 @@ invertirLista(L):-
     write(Response),
     !.
 
-invertir([], New, Response):-
-    =(Response, New),!.
+invertir([], Recursive, Response):-
+    =(Response, Recursive),!.
 
 invertir(L, RecursiveTail, Response):-
     =([Head|Tail],L),
     atomic(Head),
-    =(New, [Head|RecursiveTail]),
-    invertir(Tail, New, Response),
+    =(Recursive, [Head|RecursiveTail]),
+    invertir(Tail, Recursive, Response),
     !.
 
 invertir(L, RecursiveTail, Response):-
