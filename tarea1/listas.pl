@@ -23,8 +23,8 @@ invertirLista(L):-
     write(Response),
     !.
 
-invertir([], Recursive, Response):-
-    =(Response, Recursive),!.
+invertir([], RecursiveTail, Response):-
+    =(Response, RecursiveTail),!.
 
 invertir(L, RecursiveTail, Response):-
     =([Head|Tail],L),
