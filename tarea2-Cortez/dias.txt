@@ -1,0 +1,7 @@
+'temp_lunes.txt'.
+'temp_martes.txt'.
+'temp_miercoles.txt'.
+'temp_jueves.txt'.
+'temp_viernes.txt'.
+'temp_sabado.txt'.
+'temp_domingo.txt'.
